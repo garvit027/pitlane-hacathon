@@ -1,0 +1,171 @@
+/* --- Wallet Login Page --- */
+.wallet-login-container {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  /* Glass effect over video background */
+  background: rgba(13, 17, 23, 0.7);
+  backdrop-filter: blur(15px);
+}
+
+/* Re-using back-button style */
+.login-back-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 1.1em;
+  color: #646cff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s;
+  padding: 8px 12px;
+  background: rgba(13, 17, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  z-index: 101; /* Above panel */
+  pointer-events: auto;
+}
+.login-back-button:hover {
+  color: white;
+  background: rgba(100, 108, 255, 0.2);
+  border-color: #646cff;
+}
+
+
+.wallet-login-panel {
+  width: 100%;
+  max-width: 500px; /* Slightly wider */
+  background: linear-gradient(145deg, #181c22, #111417); /* Subtle gradient for depth */
+  border: 1px solid rgba(100, 108, 255, 0.5); /* Stronger accent border */
+  border-radius: 15px; /* More rounded */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8); /* Deeper shadow */
+  padding: 40px;
+  box-sizing: border-box;
+  color: #e0e0e0;
+  text-align: center;
+  position: relative; 
+  z-index: 100;
+  /* Add subtle neon glow effect */
+  box-shadow: 0 0 10px rgba(100, 108, 255, 0.2), 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.login-header h2 {
+  font-family: 'Aldrich', sans-serif;
+  color: #00d2be; /* Cyan accent for tech look */
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 2.5em; /* Larger title */
+  text-shadow: 0 0 5px rgba(0, 210, 190, 0.5);
+}
+
+.login-header p {
+  color: #aaa;
+  font-size: 1.1em;
+  margin-bottom: 40px; /* More spacing */
+}
+
+.login-features {
+  margin-bottom: 35px;
+  text-align: left;
+  padding: 10px 0 10px 20px;
+  color: #ccc;
+  border-left: 3px solid #646cff; /* Highlighted left border */
+}
+.login-features p {
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 1.1em;
+  color: #eee;
+}
+.login-features ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.login-features li {
+  margin-bottom: 15px; /* Increased spacing */
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap */
+}
+.feature-icon {
+  font-size: 1.3em;
+  color: #f1c40f; /* Yellow/Gold icons */
+}
+
+
+.connect-wallet-button {
+  width: 100%;
+  padding: 18px; /* Larger padding */
+  font-size: 1.4em; /* Larger text */
+  font-weight: bold;
+  background: linear-gradient(90deg, #646cff, #535bf2);
+  border: 1px solid #646cff;
+  border-radius: 10px; /* More rounded */
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Aldrich', sans-serif;
+  box-shadow: 0 5px 20px rgba(100, 108, 255, 0.3);
+}
+.connect-wallet-button:hover {
+  background: #535bf2;
+  box-shadow: 0 0 25px rgba(100, 108, 255, 0.6);
+  transform: translateY(-2px); /* Slight hover lift */
+}
+.connect-wallet-button:disabled {
+  background-color: #444;
+  border-color: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+  transform: none;
+}
+
+.mini-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { 
+  to { transform: rotate(360deg); } 
+}
+
+
+.error-message {
+  color: #e74c3c; /* Red for errors */
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 1em;
+  padding: 10px;
+  border: 1px solid #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 5px;
+}
+
+.login-footer {
+  margin-top: 30px;
+  font-size: 0.85em;
+  color: #777;
+}
+.login-footer a {
+  color: #00d2be; /* Cyan link color */
+  text-decoration: none;
+}
+.login-footer a:hover {
+  text-decoration: underline;
+}

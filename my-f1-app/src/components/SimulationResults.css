@@ -1,0 +1,89 @@
+.simulation-results {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 1px solid; /* Color set by success/failed */
+  font-size: 0.9em;
+  text-align: left; /* Align details left */
+}
+
+.simulation-results.success {
+  background-color: rgba(46, 204, 113, 0.1); /* Light green bg */
+  border-color: rgba(46, 204, 113, 0.4);
+  color: #eee; /* Light text on dark bg */
+}
+
+.simulation-results.failed {
+  background-color: rgba(231, 76, 60, 0.1); /* Light red bg */
+  border-color: rgba(231, 76, 60, 0.4);
+  color: #eee; /* Light text */
+}
+
+.simulation-results h4 {
+  margin: 0 0 10px 0;
+  font-family: 'Aldrich', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1em;
+  color: #ccc; /* Slightly dimmer title */
+}
+
+.results-summary {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+.results-summary.success {
+  color: #2ecc71; /* Green */
+}
+.results-summary.failed {
+  color: #e74c3c; /* Red */
+}
+.results-summary .icon {
+  font-size: 1.1em;
+}
+
+
+.results-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9em;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+}
+.detail-item .label {
+  color: #888; /* Grey label */
+  margin-right: 10px;
+}
+.detail-item .value {
+  color: #ccc; /* Lighter value */
+  font-weight: 500;
+  max-width: 70%; /* Prevent long error messages pushing label */
+  overflow-wrap: break-word; /* Wrap long errors */
+}
+
+.detail-item.error-detail .value {
+  color: #ff8a8a; /* Lighter red for error text */
+}
+
+/* Optional link styling */
+.simulation-results a {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.85em;
+  color: #646cff;
+  text-decoration: none;
+}
+.simulation-results a:hover {
+  text-decoration: underline;
+}

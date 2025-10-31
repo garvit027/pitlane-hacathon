@@ -1,0 +1,651 @@
+/* --- Full Boundary Fire Emitter Styles --- */
+.fire-emitter-boundary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.fire-particle-boundary {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  /* Starting color is a hot white/yellow */
+  background: #fffbe6;
+  border-radius: 50%;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  animation: boundary-fire 1.2s ease-out infinite;
+  --angle: calc(var(--i) * 4.5deg);
+  --radius: 150px;
+}
+/* Stagger animations for 80 boundary particles (unchanged) */
+.fire-particle-boundary:nth-child(1) { animation-delay: -0.015s; }
+.fire-particle-boundary:nth-child(2) { animation-delay: -0.03s; }
+.fire-particle-boundary:nth-child(3) { animation-delay: -0.045s; }
+.fire-particle-boundary:nth-child(4) { animation-delay: -0.06s; }
+.fire-particle-boundary:nth-child(5) { animation-delay: -0.075s; }
+.fire-particle-boundary:nth-child(6) { animation-delay: -0.09s; }
+.fire-particle-boundary:nth-child(7) { animation-delay: -0.105s; }
+.fire-particle-boundary:nth-child(8) { animation-delay: -0.12s; }
+.fire-particle-boundary:nth-child(9) { animation-delay: -0.135s; }
+.fire-particle-boundary:nth-child(10) { animation-delay: -0.15s; }
+.fire-particle-boundary:nth-child(11) { animation-delay: -0.165s; }
+.fire-particle-boundary:nth-child(12) { animation-delay: -0.18s; }
+.fire-particle-boundary:nth-child(13) { animation-delay: -0.195s; }
+.fire-particle-boundary:nth-child(14) { animation-delay: -0.21s; }
+.fire-particle-boundary:nth-child(15) { animation-delay: -0.225s; }
+.fire-particle-boundary:nth-child(16) { animation-delay: -0.24s; }
+.fire-particle-boundary:nth-child(17) { animation-delay: -0.255s; }
+.fire-particle-boundary:nth-child(18) { animation-delay: -0.27s; }
+.fire-particle-boundary:nth-child(19) { animation-delay: -0.285s; }
+.fire-particle-boundary:nth-child(20) { animation-delay: -0.3s; }
+.fire-particle-boundary:nth-child(21) { animation-delay: -0.315s; }
+.fire-particle-boundary:nth-child(22) { animation-delay: -0.33s; }
+.fire-particle-boundary:nth-child(23) { animation-delay: -0.345s; }
+.fire-particle-boundary:nth-child(24) { animation-delay: -0.36s; }
+.fire-particle-boundary:nth-child(25) { animation-delay: -0.375s; }
+.fire-particle-boundary:nth-child(26) { animation-delay: -0.39s; }
+.fire-particle-boundary:nth-child(27) { animation-delay: -0.405s; }
+.fire-particle-boundary:nth-child(28) { animation-delay: -0.42s; }
+.fire-particle-boundary:nth-child(29) { animation-delay: -0.435s; }
+.fire-particle-boundary:nth-child(30) { animation-delay: -0.45s; }
+.fire-particle-boundary:nth-child(31) { animation-delay: -0.465s; }
+.fire-particle-boundary:nth-child(32) { animation-delay: -0.48s; }
+.fire-particle-boundary:nth-child(33) { animation-delay: -0.495s; }
+.fire-particle-boundary:nth-child(34) { animation-delay: -0.51s; }
+.fire-particle-boundary:nth-child(35) { animation-delay: -0.525s; }
+.fire-particle-boundary:nth-child(36) { animation-delay: -0.54s; }
+.fire-particle-boundary:nth-child(37) { animation-delay: -0.555s; }
+.fire-particle-boundary:nth-child(38) { animation-delay: -0.57s; }
+.fire-particle-boundary:nth-child(39) { animation-delay: -0.585s; }
+.fire-particle-boundary:nth-child(40) { animation-delay: -0.6s; }
+.fire-particle-boundary:nth-child(41) { animation-delay: -0.615s; }
+.fire-particle-boundary:nth-child(42) { animation-delay: -0.63s; }
+.fire-particle-boundary:nth-child(43) { animation-delay: -0.645s; }
+.fire-particle-boundary:nth-child(44) { animation-delay: -0.66s; }
+.fire-particle-boundary:nth-child(45) { animation-delay: -0.675s; }
+.fire-particle-boundary:nth-child(46) { animation-delay: -0.69s; }
+.fire-particle-boundary:nth-child(47) { animation-delay: -0.705s; }
+.fire-particle-boundary:nth-child(48) { animation-delay: -0.72s; }
+.fire-particle-boundary:nth-child(49) { animation-delay: -0.735s; }
+.fire-particle-boundary:nth-child(50) { animation-delay: -0.75s; }
+.fire-particle-boundary:nth-child(51) { animation-delay: -0.765s; }
+.fire-particle-boundary:nth-child(52) { animation-delay: -0.78s; }
+.fire-particle-boundary:nth-child(53) { animation-delay: -0.795s; }
+.fire-particle-boundary:nth-child(54) { animation-delay: -0.81s; }
+.fire-particle-boundary:nth-child(55) { animation-delay: -0.825s; }
+.fire-particle-boundary:nth-child(56) { animation-delay: -0.84s; }
+.fire-particle-boundary:nth-child(57) { animation-delay: -0.855s; }
+.fire-particle-boundary:nth-child(58) { animation-delay: -0.87s; }
+.fire-particle-boundary:nth-child(59) { animation-delay: -0.885s; }
+.fire-particle-boundary:nth-child(60) { animation-delay: -0.9s; }
+.fire-particle-boundary:nth-child(61) { animation-delay: -0.915s; }
+.fire-particle-boundary:nth-child(62) { animation-delay: -0.93s; }
+.fire-particle-boundary:nth-child(63) { animation-delay: -0.945s; }
+.fire-particle-boundary:nth-child(64) { animation-delay: -0.96s; }
+.fire-particle-boundary:nth-child(65) { animation-delay: -0.975s; }
+.fire-particle-boundary:nth-child(66) { animation-delay: -0.99s; }
+.fire-particle-boundary:nth-child(67) { animation-delay: -1.005s; }
+.fire-particle-boundary:nth-child(68) { animation-delay: -1.02s; }
+.fire-particle-boundary:nth-child(69) { animation-delay: -1.035s; }
+.fire-particle-boundary:nth-child(70) { animation-delay: -1.05s; }
+.fire-particle-boundary:nth-child(71) { animation-delay: -1.065s; }
+.fire-particle-boundary:nth-child(72) { animation-delay: -1.08s; }
+.fire-particle-boundary:nth-child(73) { animation-delay: -1.095s; }
+.fire-particle-boundary:nth-child(74) { animation-delay: -1.11s; }
+.fire-particle-boundary:nth-child(75) { animation-delay: -1.125s; }
+.fire-particle-boundary:nth-child(76) { animation-delay: -1.14s; }
+.fire-particle-boundary:nth-child(77) { animation-delay: -1.155s; }
+.fire-particle-boundary:nth-child(78) { animation-delay: -1.17s; }
+.fire-particle-boundary:nth-child(79) { animation-delay: -1.185s; }
+.fire-particle-boundary:nth-child(80) { animation-delay: -1.2s; }
+
+
+@keyframes boundary-fire {
+  0% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(var(--angle)) 
+      translateX(calc(var(--radius) * 0.9))
+      scale(1.3);
+    opacity: 1;
+    /* White hot center */
+    background-color: #ffffff;
+    box-shadow: 0 0 6px #fff, 0 0 12px #ff4500; /* Flame Red Glow */
+  }
+  30% {
+    /* Transition to Flame Red/Orange */
+    background-color: #ff4500;
+  }
+  100% {
+    transform: 
+      translate(-50%, -50%)
+      rotate(var(--angle)) 
+      translateX(calc(var(--radius) * 1.3))
+      scale(0);
+    opacity: 0;
+    /* Fading to deep red/ember */
+    background-color: #c0392b; 
+    box-shadow: none;
+  }
+}
+/* All other styles remain the same as the previous Flame Red update */
+
+/* --- Login Hub Styles --- */
+.login_wheel_overlay {
+  position: fixed;             /* covers the whole viewport */
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;                 /* above rest of the overlay */
+  pointer-events: auto;
+  background: none;            /* optional: no dimming */
+}
+
+.login-hub-container {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Remove grid-row/-column, left/right, top/50% transforms */
+}
+
+/* --- SVG Wheel Styles --- */
+.wheel-svg {
+  width: 100%;
+  height: 100%;
+  animation: spin 1.5s linear infinite;
+  overflow: visible;
+  cursor: pointer;
+}
+.wheel-tire {
+  fill: url(#tireGradient);
+  stroke: #111;
+  stroke-width: 2;
+}
+.wheel-rim {
+  fill: none;
+  stroke: url(#rimGradient);
+  stroke-width: 8;
+}
+.wheel-spoke {
+  stroke: url(#rimGradient);
+  stroke-width: 6;
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
+}
+.wheel-center {
+  fill: url(#centerHubGradient);
+  stroke: #999;
+  stroke-width: 1;
+}
+
+/* --- LOGIN Text --- */
+.wheel-login-text {
+  fill: #ff4500; /* Flame Red */
+  font-family: 'Aldrich', sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 69, 0, 0.7); /* Flame Red */
+  animation: spin-reverse 1.5s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.login-button {
+  display: none;
+}
+.fire-particle-boundary:nth-child(1) { animation-delay: -0.015s; }
+.fire-particle-boundary:nth-child(2) { animation-delay: -0.03s; }
+.fire-particle-boundary:nth-child(3) { animation-delay: -0.045s; }
+.fire-particle-boundary:nth-child(4) { animation-delay: -0.06s; }
+.fire-particle-boundary:nth-child(5) { animation-delay: -0.075s; }
+.fire-particle-boundary:nth-child(6) { animation-delay: -0.09s; }
+.fire-particle-boundary:nth-child(7) { animation-delay: -0.105s; }
+.fire-particle-boundary:nth-child(8) { animation-delay: -0.12s; }
+.fire-particle-boundary:nth-child(9) { animation-delay: -0.135s; }
+.fire-particle-boundary:nth-child(10) { animation-delay: -0.15s; }
+.fire-particle-boundary:nth-child(11) { animation-delay: -0.165s; }
+.fire-particle-boundary:nth-child(12) { animation-delay: -0.18s; }
+.fire-particle-boundary:nth-child(13) { animation-delay: -0.195s; }
+.fire-particle-boundary:nth-child(14) { animation-delay: -0.21s; }
+.fire-particle-boundary:nth-child(15) { animation-delay: -0.225s; }
+.fire-particle-boundary:nth-child(16) { animation-delay: -0.24s; }
+.fire-particle-boundary:nth-child(17) { animation-delay: -0.255s; }
+.fire-particle-boundary:nth-child(18) { animation-delay: -0.27s; }
+.fire-particle-boundary:nth-child(19) { animation-delay: -0.285s; }
+.fire-particle-boundary:nth-child(20) { animation-delay: -0.3s; }
+.fire-particle-boundary:nth-child(21) { animation-delay: -0.315s; }
+.fire-particle-boundary:nth-child(22) { animation-delay: -0.33s; }
+.fire-particle-boundary:nth-child(23) { animation-delay: -0.345s; }
+.fire-particle-boundary:nth-child(24) { animation-delay: -0.36s; }
+.fire-particle-boundary:nth-child(25) { animation-delay: -0.375s; }
+.fire-particle-boundary:nth-child(26) { animation-delay: -0.39s; }
+.fire-particle-boundary:nth-child(27) { animation-delay: -0.405s; }
+.fire-particle-boundary:nth-child(28) { animation-delay: -0.42s; }
+.fire-particle-boundary:nth-child(29) { animation-delay: -0.435s; }
+.fire-particle-boundary:nth-child(30) { animation-delay: -0.45s; }
+.fire-particle-boundary:nth-child(31) { animation-delay: -0.465s; }
+.fire-particle-boundary:nth-child(32) { animation-delay: -0.48s; }
+.fire-particle-boundary:nth-child(33) { animation-delay: -0.495s; }
+.fire-particle-boundary:nth-child(34) { animation-delay: -0.51s; }
+.fire-particle-boundary:nth-child(35) { animation-delay: -0.525s; }
+.fire-particle-boundary:nth-child(36) { animation-delay: -0.54s; }
+.fire-particle-boundary:nth-child(37) { animation-delay: -0.555s; }
+.fire-particle-boundary:nth-child(38) { animation-delay: -0.57s; }
+.fire-particle-boundary:nth-child(39) { animation-delay: -0.585s; }
+.fire-particle-boundary:nth-child(40) { animation-delay: -0.6s; }
+.fire-particle-boundary:nth-child(41) { animation-delay: -0.615s; }
+.fire-particle-boundary:nth-child(42) { animation-delay: -0.63s; }
+.fire-particle-boundary:nth-child(43) { animation-delay: -0.645s; }
+.fire-particle-boundary:nth-child(44) { animation-delay: -0.66s; }
+.fire-particle-boundary:nth-child(45) { animation-delay: -0.675s; }
+.fire-particle-boundary:nth-child(46) { animation-delay: -0.69s; }
+.fire-particle-boundary:nth-child(47) { animation-delay: -0.705s; }
+.fire-particle-boundary:nth-child(48) { animation-delay: -0.72s; }
+.fire-particle-boundary:nth-child(49) { animation-delay: -0.735s; }
+.fire-particle-boundary:nth-child(50) { animation-delay: -0.75s; }
+.fire-particle-boundary:nth-child(51) { animation-delay: -0.765s; }
+.fire-particle-boundary:nth-child(52) { animation-delay: -0.78s; }
+.fire-particle-boundary:nth-child(53) { animation-delay: -0.795s; }
+.fire-particle-boundary:nth-child(54) { animation-delay: -0.81s; }
+.fire-particle-boundary:nth-child(55) { animation-delay: -0.825s; }
+.fire-particle-boundary:nth-child(56) { animation-delay: -0.84s; }
+.fire-particle-boundary:nth-child(57) { animation-delay: -0.855s; }
+.fire-particle-boundary:nth-child(58) { animation-delay: -0.87s; }
+.fire-particle-boundary:nth-child(59) { animation-delay: -0.885s; }
+.fire-particle-boundary:nth-child(60) { animation-delay: -0.9s; }
+.fire-particle-boundary:nth-child(61) { animation-delay: -0.915s; }
+.fire-particle-boundary:nth-child(62) { animation-delay: -0.93s; }
+.fire-particle-boundary:nth-child(63) { animation-delay: -0.945s; }
+.fire-particle-boundary:nth-child(64) { animation-delay: -0.96s; }
+.fire-particle-boundary:nth-child(65) { animation-delay: -0.975s; }
+.fire-particle-boundary:nth-child(66) { animation-delay: -0.99s; }
+.fire-particle-boundary:nth-child(67) { animation-delay: -1.005s; }
+.fire-particle-boundary:nth-child(68) { animation-delay: -1.02s; }
+.fire-particle-boundary:nth-child(69) { animation-delay: -1.035s; }
+.fire-particle-boundary:nth-child(70) { animation-delay: -1.05s; }
+.fire-particle-boundary:nth-child(71) { animation-delay: -1.065s; }
+.fire-particle-boundary:nth-child(72) { animation-delay: -1.08s; }
+.fire-particle-boundary:nth-child(73) { animation-delay: -1.095s; }
+.fire-particle-boundary:nth-child(74) { animation-delay: -1.11s; }
+.fire-particle-boundary:nth-child(75) { animation-delay: -1.125s; }
+.fire-particle-boundary:nth-child(76) { animation-delay: -1.14s; }
+.fire-particle-boundary:nth-child(77) { animation-delay: -1.155s; }
+.fire-particle-boundary:nth-child(78) { animation-delay: -1.17s; }
+.fire-particle-boundary:nth-child(79) { animation-delay: -1.185s; }
+.fire-particle-boundary:nth-child(80) { animation-delay: -1.2s; }
+
+/* --- Existing Overlay Styles --- */
+.overlay-container {
+  position: relative; /* This ensures the hub is centered */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 10;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.overlay-section {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: rgba(13, 17, 23, 0.6);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform-origin: center center;
+  z-index: 11;
+}
+
+/* Positioning */
+/* --- FIX: Added transform-origin to make quadrants fly from center --- */
+.top-left { 
+  grid-area: 1 / 1 / 2 / 2; align-items: flex-start; justify-content: flex-start;
+  transform-origin: bottom right;
+}
+.top-right { 
+  grid-area: 1 / 2 / 2 / 3; align-items: flex-end; justify-content: flex-start;
+  transform-origin: bottom left;
+}
+.bottom-left { 
+  grid-area: 2 / 1 / 3 / 2; align-items: flex-start; justify-content: flex-end;
+  transform-origin: top right;
+}
+.bottom-right { 
+  grid-area: 2 / 2 / 3 / 3; align-items: flex-end; justify-content: flex-end;
+  transform-origin: top left;
+}
+/* --- END FIX --- */
+
+/* Specific UI elements */
+.app-title { font-size: 2.5em; color: #ff4500; /* Flame Red */ margin-bottom: 0; }
+.app-subtitle { font-size: 1.1em; color: #aaa; margin-top: 5px; }
+.current-race-info { display: flex; gap: 10px; font-size: 1.2em; font-weight: bold; color: white; }
+.live-status {
+  background-color: #e74c3c; padding: 3px 8px; border-radius: 4px;
+  font-size: 0.8em; align-self: center;
+}
+.action-button {
+  margin-top: 10px; padding: 10px 20px; font-size: 1.1em; font-weight: bold;
+  border: none; background-color: rgba(60, 60, 60, 0.7); color: white;
+  border-radius: 5px; cursor: pointer; transition: background-color 0.3s, transform 0.2s;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.action-button:hover { background-color: rgba(90, 90, 90, 0.8); transform: translateY(-2px); }
+.action-button.primary { background-color: #ff4500; /* Flame Red */ }
+.action-button.primary:hover { background-color: #cc3700; /* Darker Flame Red */ }
+.action-button.primary.active {
+  text-decoration: none;
+  text-underline-offset: 4px;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.5); /* Flame Red */
+}
+.icon-button {
+  background: none; border: none; font-size: 1.5em; color: #aaa;
+  cursor: pointer; margin-top: 10px;
+}
+.icon-button:hover { color: white; }
+.modal {
+  pointer-events: auto; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%); background: rgba(13, 17, 23, 0.95);
+  border: 1px solid #ff4500; /* Flame Red */ border-radius: 10px; padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); z-index: 100;
+  min-width: 400px; max-width: 80vw; color: #eee;
+}
+.modal h2 {
+  font-family: 'Aldrich', sans-serif; color: #ff4500; /* Flame Red */ margin-top: 0;
+  margin-bottom: 5px; text-align: center;
+}
+.close-button {
+  position: absolute; top: 10px; right: 10px; background: none; border: none;
+  font-size: 1.2em; color: white; cursor: pointer; transition: color 0.2s;
+}
+.close-button:hover { color: #e74c3c; }
+
+
+/* --- NEW: Paddock License Styles --- */
+.license-button {
+  position: absolute;
+  top: 0; /* Position at the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust centering */
+  z-index: 25; /* Above quadrants, below modals */
+  pointer-events: auto;
+  
+  background: linear-gradient(145deg, #2a2f38, #1c1f26);
+  border: 1px solid rgba(255, 69, 0, 0.3); /* Flame Red */
+  color: #ff8c69; /* Lighter Flame Red */
+  font-family: 'Aldrich', sans-serif;
+  font-size: 0.9em;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 8px 18px;
+  border-radius: 0 0 12px 12px; /* Rounded bottom corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.license-button:hover {
+  color: #fff;
+  background: #ff4500; /* Flame Red */
+  border-color: #ff4500; /* Flame Red */
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.6); /* Flame Red */
+  transform: translateX(-50%) translateY(2px); /* Slight hover effect */
+}
+.license-button span {
+  margin-right: 8px;
+  filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.5)); /* Flame Red */
+}
+
+/* Backdrop for the license */
+.license-backdrop {
+  position: fixed; /* Cover full screen */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+  pointer-events: auto;
+}
+
+/* The License Card itself */
+.license-card {
+  position: fixed; /* Cover full screen */
+  top: 50%; /* Center vertically... */
+  left: 50%;
+  /* ...but the animation variant moves it to y: -50% (translateY(-50%)) */
+  z-index: 51;
+  pointer-events: auto;
+  
+  width: 90%;
+  max-width: 480px; /* Card width */
+  aspect-ratio: 1.586 / 1; /* Standard ID-1 card ratio (credit card) */
+  max-height: 60vh; /* Max height to fit screen */
+  
+  background: linear-gradient(135deg, #2d343e 0%, #1e222a 100%);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Clip contents to rounded corners */
+  
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  cursor: grab; /* Show grab cursor since it's draggable */
+}
+.license-card:active {
+  cursor: grabbing; /* Show grabbing cursor */
+}
+
+
+.license-header {
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: right;
+}
+.license-header h3 {
+  font-family: 'Aldrich', sans-serif;
+  color: #fff;
+  font-size: 1.1em;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.license-header span {
+  font-size: 0.7em;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.license-body {
+  flex-grow: 1;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  position: relative; /* For hologram/qr */
+}
+
+.license-photo-placeholder {
+  width: 100px;
+  height: 100px;
+  background: #333;
+  border: 1px solid #555;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  font-weight: bold;
+  color: #ff4500; /* Flame Red */
+  flex-shrink: 0;
+}
+
+.license-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+.detail-item .label {
+  font-size: 0.7em;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.detail-item .value {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #eee;
+  word-break: break-all; /* Wrap long usernames */
+}
+.detail-item .value.wallet {
+  font-family: monospace;
+  font-size: 1.1em;
+  color: #ff8c69; /* Lighter Flame Red */
+}
+
+.license-hologram {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #ff8c69, #ff4500, #e74c3c, #c0392b); /* Flame Red Gradient */
+  opacity: 0.2;
+  border-radius: 50%;
+  animation: hologram-shine 3s infinite alternate;
+}
+@keyframes hologram-shine {
+  from { opacity: 0.1; transform: rotate(0deg) scale(0.9); }
+  to { opacity: 0.3; transform: rotate(180deg) scale(1.1); }
+}
+.license-qr-code {
+  position: absolute;
+  right: 80px; /* Next to hologram */
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 4px solid white;
+  border-radius: 4px;
+  /* Simple QR code placeholder */
+  background-image: 
+    linear-gradient(45deg, #333 25%, transparent 25%), 
+    linear-gradient(-45deg, #333 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #333 75%),
+    linear-gradient(-45deg, transparent 75%, #333 75%);
+  background-size: 10px 10px;
+  background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
+}
+
+
+.license-footer {
+  display: flex;
+  height: 10px; /* Height of the bars */
+  flex-shrink: 0;
+}
+.footer-bar { flex: 1; }
+.footer-bar.red { background: #e74c3c; }
+.footer-bar.blue { background: #3498db; }
+.footer-bar.yellow { background: #f1c40f; }
+
+.close-license-btn {
+  /* Hidden, but functional for accessibility */
+  opacity: 0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  z-index: 10; /* Above card content */
+}
+/* --- Center Login Button Styles --- */
+.center-login-button {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 25;
+  padding: 20px 40px;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: 'Aldrich', sans-serif;
+  background: linear-gradient(145deg, #ff4500, #cc3700); /* Flame Red Gradient */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 
+    0 0 30px rgba(255, 69, 0, 0.8), /* Flame Red */
+    0 0 60px rgba(255, 69, 0, 0.4), /* Flame Red */
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  animation: pulse-glow 2s infinite;
+  pointer-events: auto;
+}
+
+.center-login-button:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 
+    0 0 40px rgba(255, 69, 0, 1), /* Flame Red */
+    0 0 80px rgba(255, 69, 0, 0.6), /* Flame Red */
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(145deg, #cc3700, #ff4500); /* Flame Red Gradient */
+}
+
+.center-login-button:active {
+  transform: translate(-50%, -50%) scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 30px rgba(255, 69, 0, 0.8), /* Flame Red */
+      0 0 60px rgba(255, 69, 0, 0.4), /* Flame Red */
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(255, 69, 0, 1), /* Flame Red */
+      0 0 80px rgba(255, 69, 0, 0.6), /* Flame Red */
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+}

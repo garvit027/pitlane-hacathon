@@ -1,0 +1,260 @@
+/* --- Base Container & Panel --- */
+.community-hub-container {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* Glass effect */
+  background: rgba(13, 17, 23, 0.7);
+  backdrop-filter: blur(15px);
+}
+
+.community-hub-panel {
+  width: 100%;
+  max-width: 1600px; /* Wider for hub layout */
+  height: 95vh; /* Taller */
+  background: rgba(18, 22, 28, 0.9);
+  border: 1px solid rgba(100, 108, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  padding: 0; /* Internal padding */
+  box-sizing: border-box;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- Header --- */
+.hub-header {
+  padding: 25px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  background: rgba(13, 17, 23, 0.5); /* Slight distinction */
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hub-header h1 {
+  font-family: 'Aldrich', sans-serif;
+  color: #fff;
+  font-size: 2em;
+  margin: 0 0 5px 0;
+}
+.hub-header p {
+  color: #aaa;
+  font-size: 1.1em;
+  margin: 0;
+}
+.hub-back-button { /* Position back button in header */
+   position: absolute;
+   top: 15px;
+   left: 15px;
+   font-size: 0.9em;
+   color: #8892ff;
+   text-decoration: none;
+   padding: 5px 10px;
+   background: rgba(255,255,255,0.05);
+   border-radius: 5px;
+   pointer-events: auto; /* Ensure clickable */
+}
+.hub-back-button:hover { color: #fff; background: rgba(255,255,255,0.1); }
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.connection-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border: 1px solid; /* Color set inline */
+}
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  /* background set inline */
+}
+/* .status-label { font-size: 0.9em; color: #888; } */ /* Optional less prominent label */
+
+.online-users {
+  text-align: right;
+}
+.users-count {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #eee;
+  display: block;
+}
+.users-label {
+  font-size: 0.8em;
+  color: #888;
+  text-transform: uppercase;
+}
+
+/* --- Auth Required --- */
+.auth-required-hub {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+.auth-prompt-large {
+  max-width: 600px;
+}
+.auth-icon {
+  font-size: 4em;
+  margin-bottom: 20px;
+}
+.auth-prompt-large h2 {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 2.2em;
+  color: #eee;
+  margin-bottom: 15px;
+}
+.auth-prompt-large p {
+  color: #aaa;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+.community-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease-out;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+.feature-icon {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+.feature-card h4 {
+  font-size: 1.1em;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+.feature-card p {
+  font-size: 0.9em;
+  color: #888;
+  margin: 0;
+}
+.hub-login-button { /* Re-use connect button style */
+  padding: 12px 30px;
+  font-size: 1.1em;
+  font-weight: bold;
+  background-color: #646cff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none; /* Remove underline from Link */
+  display: inline-block; /* Allow margin */
+  margin-bottom: 20px;
+}
+.hub-login-button:hover { background-color: #535bf2; }
+.auth-note { font-size: 0.85em; color: #666; }
+
+/* --- Tabs --- */
+.hub-tabs {
+  display: flex;
+  background-color: rgba(13, 17, 23, 0.7); /* Slightly darker */
+  padding: 10px 40px 0 40px; /* Match panel padding */
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hub-tab {
+  background: none;
+  border: none;
+  color: #aaa;
+  padding: 15px 25px;
+  font-size: 1.1em;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.hub-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Align with border-bottom of nav */
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #646cff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-out;
+}
+.hub-tab:hover {
+  color: #eee;
+}
+.hub-tab.active {
+  color: #fff;
+  font-weight: bold;
+}
+.hub-tab.active::after {
+  transform: scaleX(1);
+}
+.tab-icon { font-size: 1.2em; }
+
+/* --- Content Area --- */
+.hub-content {
+  flex: 1; /* Takes remaining space */
+  overflow: hidden; /* Needed for AnimatePresence */
+  position: relative;
+}
+.content-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto; /* Allow content of each tab to scroll */
+  padding: 30px 40px; /* Padding for content */
+}
+
+/* Styles for components rendered within content-wrapper */
+/* Ensure child components fill the space if needed */
+.content-wrapper > * { /* Target direct children (Chat, LiveScores, FanClubs) */
+  height: 100%; /* Or min-height if preferred */
+  /* Add any other necessary styles */
+}
+
+/* Example: Adjust padding/margin for nested components if needed */
+.content-wrapper .chat-container,
+.content-wrapper .livescores-panel, /* Target inner panel if needed */
+.content-wrapper .fanclubs-panel {
+  padding: 0; /* Remove default panel padding if wrapper adds it */
+  border: none; /* Remove default borders */
+  box-shadow: none; /* Remove default shadows */
+  background: none; /* Make transparent if wrapper provides bg */
+  height: 100%; /* Ensure full height */
+  max-width: none; /* Allow full width within wrapper */
+}

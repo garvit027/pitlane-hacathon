@@ -1,0 +1,243 @@
+.stadium-view-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  overflow: hidden; /* This is crucial */
+  
+  /* This is the 30% blur you wanted over the video */
+  background: rgba(13, 17, 23, 0.3);
+  backdrop-filter: blur(20px);
+}
+
+/* --- Header UI --- */
+.stadium-ui-header {
+  pointer-events: auto;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  z-index: 100;
+  background: rgba(13, 17, 23, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.stadium-back-button {
+  font-size: 1.1em;
+  color: #646cff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.stadium-back-button:hover {
+  color: white;
+}
+
+/* --- 2D Stadium Map --- */
+.stadium-map-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* This transition is the "zoom" animation */
+  transition: transform 1.5s cubic-bezier(0.76, 0, 0.24, 1);
+  /* Background color REMOVED from wrapper */
+}
+
+.stadium-svg {
+  width: 90%;
+  max-width: 1000px;
+  height: auto;
+  transform: scale(1); 
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); /* Add some depth */
+}
+
+/* NEW: Green Infield Style */
+.svg-infield {
+  fill: rgba(34, 139, 34, 0.4); /* Semi-transparent forest green for inside */
+  stroke: none; /* No outline for the infield */
+}
+
+.svg-track-path, .svg-track-inner-path {
+  fill: #222; /* Darker interior for the track */
+  stroke: #444; /* Outline */
+  stroke-width: 5;
+}
+
+.svg-stand rect {
+  /* Colors are now set inline in JSX using style={{fill: color}} */
+  stroke: #fff; /* White border */
+  stroke-width: 1; /* Thinner border */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.svg-stand text {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 12px; 
+  fill: #fff; /* White text for better contrast */
+  cursor: pointer;
+  pointer-events: none;
+  /* Helps center the text better */
+  dominant-baseline: middle; 
+  text-anchor: middle;
+}
+
+.svg-stand:hover rect {
+  stroke-width: 3; /* Thicker border on hover */
+  filter: brightness(1.2); /* Make it slightly brighter on hover */
+}
+/* Removed hover text color change */
+
+
+/* --- Zoom CSS (Adjusted for new SVG layout) --- */
+.zoom-overview {
+  transform: scale(0.8) translate(0, 0); 
+}
+/* Updated zoom coordinates for better centering */
+.zoom-stand-A { transform: scale(3.5) translate(-10px, 180px); } 
+.zoom-stand-B { transform: scale(3.5) translate(100px, 180px); }
+.zoom-stand-C { transform: scale(3.5) translate(50px, 200px); } /* Turn 10 */
+.zoom-stand-D { transform: scale(3.5) translate(50px, -180px); } /* Final Corner */
+.zoom-stand-E { transform: scale(4) translate(-270px, 50px); } /* Heineken Village */
+.zoom-stand-F { transform: scale(4) translate(-180px, 100px); } /* Pit Stop */
+.zoom-stand-G { transform: scale(3.5) translate(0px, -150px); } /* Orange Tree Club */
+.zoom-stand-H { transform: scale(3.5) translate(-100px, -130px); } /* Section H */
+.zoom-stand-I { transform: scale(3.5) translate(-180px, -80px); } /* Section I */
+.zoom-stand-M { transform: scale(3.5) translate(200px, 100px); } /* Section M */
+.zoom-stand-N { transform: scale(3.5) translate(200px, 20px); } /* Section N */
+.zoom-stand-P { transform: scale(3.5) translate(200px, -100px); } /* Section P */
+.zoom-stand-R { transform: scale(3.5) translate(100px, -200px); } /* Section R */
+.zoom-stand-S { transform: scale(3.5) translate(0px, -200px); } /* Section S */
+
+
+/* --- Seat Picker UI --- */
+.seat-picker-container {
+  position: absolute;
+  left: 30px;
+  top: 120px;
+  width: 400px;
+  max-height: calc(100vh - 150px);
+  background: rgba(13, 17, 23, 0.85);
+  border: 1px solid #646cff;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  z-index: 101;
+  overflow-y: auto;
+  
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: slide-in 0.5s 1s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+/* Hide the picker when in overview */
+.zoom-overview ~ .seat-picker-container {
+  display: none;
+}
+
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.screen-indicator {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  margin: 20px 0;
+  letter-spacing: 2px;
+  color: #aaa;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  padding: 10px;
+  justify-items: center;
+}
+
+.seat {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.seat:not(.taken):hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+.seat.taken {
+  background-color: #555;
+  color: #333;
+  cursor: not-allowed;
+}
+.seat.selected {
+  background-color: #646cff;
+  color: white;
+}
+
+.seat-legend {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+}
+.legend-item .seat {
+  width: 20px;
+  height: 20px;
+  cursor: default;
+}
+
+.action-button.connect-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2em;
+  margin-top: 10px;
+  background-color: #646cff;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: bold;
+}
+.action-button.connect-button:hover {
+  background-color: #535bf2;
+}
+

@@ -1,0 +1,240 @@
+/* --- Club Card Styling --- */
+.club-card {
+  background: rgba(30, 35, 42, 0.8); /* Darker base */
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px; /* Base height */
+  /* Use CSS variable for border color */
+  border-left: 5px solid var(--club-card-color, #646cff);
+  pointer-events: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  backdrop-filter: blur(5px);
+}
+
+.club-card.owned {
+  /* Use CSS variable for owned background */
+  background: var(--club-card-bg-owned, rgba(100, 108, 255, 0.1));
+  border-left-width: 8px; /* Thicker border for owned */
+}
+
+/* No hover scale effect by default, added subtle lift */
+.club-card:hover {
+  transform: translateY(-3px); /* Subtle lift on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.club-header {
+  display: flex;
+  align-items: flex-start; /* Align items to top */
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.club-icon {
+  font-size: 2.5em; /* Larger icon */
+  line-height: 1;
+  margin-top: -5px; /* Adjust alignment */
+  color: var(--club-card-color); /* Use variable for icon color */
+}
+
+.club-info {
+  flex-grow: 1;
+}
+.club-info h4 {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 1.4em;
+  margin: 0 0 5px 0;
+  color: #eee;
+}
+.club-description {
+  font-size: 0.9em;
+  color: #aaa;
+  line-height: 1.4;
+  margin: 0;
+  /* Limit description lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show max 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.club-status {
+  flex-shrink: 0; /* Prevent shrinking */
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 15px;
+  white-space: nowrap;
+  margin-top: 2px; /* Align better with title */
+}
+.member-badge {
+  background-color: rgba(46, 204, 113, 0.2); /* Green tint */
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.badge-icon {
+  font-size: 0.9em;
+}
+.non-member-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #aaa;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.club-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px 15px; /* Row gap, Column gap */
+  margin-bottom: 15px;
+  font-size: 0.85em;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 15px;
+}
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+.detail-item .label {
+  color: #888;
+  font-size: 0.9em;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.detail-item .value {
+  color: #ccc;
+  font-weight: 500;
+}
+.detail-item .value.fee {
+  font-weight: bold;
+  color: #f1c40f; /* Yellow for price */
+}
+
+.club-benefits {
+  font-size: 0.9em;
+  color: #bbb;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 15px;
+  margin-top: 0; /* Margin controlled by motion.div */
+  overflow: hidden; /* Needed for framer-motion height animation */
+}
+.club-benefits h5 {
+  margin: 0 0 10px 0;
+  color: #aaa;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px; /* Slightly reduced margin */
+}
+.benefit-icon {
+  color: #2ecc71; /* Green check */
+}
+
+.club-actions {
+  margin-top: auto; /* Pushes actions to the bottom */
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Base button styles */
+.club-actions button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+}
+.club-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.enter-club-btn {
+  flex-grow: 1; /* Take more space */
+  background: var(--club-card-color, #646cff);
+  color: white;
+  border: 1px solid var(--club-card-color, #646cff);
+}
+.enter-club-btn:hover {
+  filter: brightness(1.15); /* Brighter hover */
+}
+.btn-arrow {
+  margin-left: auto;
+  font-size: 1.2em;
+}
+
+.join-club-btn {
+  flex-grow: 1;
+  background: #2ecc71; /* Green for join */
+  color: white;
+  border: 1px solid #2ecc71;
+}
+.join-club-btn:hover {
+  background: #27ae60;
+  border-color: #27ae60;
+}
+.join-club-btn.joining {
+  background: #555;
+  border-color: #555;
+}
+
+.spinner-small { /* For joining button */
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+/* Reusing spinner keyframes if defined globally in index.css */
+/* @keyframes spin { to { transform: rotate(360deg); } } */
+
+
+.details-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #aaa;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0; /* Prevent shrinking */
+}
+.details-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #eee;
+}
+.details-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.contract-info {
+  margin-top: 15px;
+  font-size: 0.75em;
+  color: #666;
+  text-align: center;
+  word-break: break-all;
+}
+

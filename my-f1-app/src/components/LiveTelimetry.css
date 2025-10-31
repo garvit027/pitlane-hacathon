@@ -1,0 +1,304 @@
+/* --- Base Container --- */
+.live-telemetry {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column; /* Stack header, tabs, content, footer */
+  padding: 0; /* No outer padding */
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #e0e0e0;
+
+  /* Use a darker, techy background */
+  background: linear-gradient(135deg, #161a21 0%, #101217 100%);
+  border: 1px solid rgba(100, 108, 255, 0.2); /* Subtle border */
+  border-radius: 12px; /* Consistent rounding */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Loading State (Centered) */
+.telemetry-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 17, 23, 0.9);
+  z-index: 100;
+  color: #aaa;
+}
+.loading-spinner { /* Reusable spinner */
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #646cff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+
+/* --- Header --- */
+.telemetry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  background: rgba(25, 30, 40, 0.5); /* Slightly distinct header bg */
+}
+.header-left {
+  display: flex;
+  align-items: baseline; /* Align title and info nicely */
+  gap: 20px;
+}
+.header-left h2 {
+  font-family: 'Aldrich', sans-serif;
+  color: #fff;
+  font-size: 1.5em;
+  margin: 0;
+}
+.session-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.9em;
+  color: #aaa;
+}
+.session-name { font-weight: bold; color: #ccc; }
+.lap-counter { /* Style differently */ }
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.connection-status .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.connection-status.connected { color: #10b981; background: rgba(16, 185, 129, 0.1); }
+.connection-status.connected .status-dot { background: #10b981; }
+.connection-status.offline { color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
+.connection-status.offline .status-dot { background: #f59e0b; }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.driver-selector { display: flex; align-items: center; gap: 8px; font-size: 0.9em; }
+.driver-selector label { color: #888; }
+.driver-select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.95em;
+}
+
+.playback-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ccc;
+  padding: 5px 12px;
+  font-size: 0.9em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.playback-btn:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+.playback-btn.playing { color: #f59e0b; border-color: #f59e0b; } /* Yellow for pause */
+.playback-btn.paused { color: #10b981; border-color: #10b981; } /* Green for play */
+
+/* --- Tabs --- */
+.telemetry-tabs {
+  display: flex;
+  background-color: rgba(13, 17, 23, 0.7);
+  padding: 5px 30px 0 30px; /* Padding for tabs */
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tab {
+  background: none;
+  border: none;
+  color: #aaa;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Align with border-bottom */
+  left: 0; right: 0; height: 3px;
+  background-color: #646cff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-out;
+}
+.tab:hover { color: #eee; }
+.tab.active { color: #fff; font-weight: bold; }
+.tab.active::after { transform: scaleX(1); }
+
+/* --- Content Area --- */
+.telemetry-content {
+  flex: 1; /* Takes remaining space */
+  overflow-y: auto; /* Allow content to scroll */
+  padding: 25px 30px; /* Padding inside content */
+}
+
+/* Grid Layouts for Tabs */
+.overview-grid, .tires-grid, .engine-grid, .track-grid {
+  display: grid;
+  gap: 20px;
+  /* Define grid template areas or columns/rows */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Basic responsive grid */
+}
+/* Specific overrides if needed */
+.overview-grid { grid-template-columns: 2fr 1fr 1fr; } /* Example: Speed wider */
+.tires-grid { grid-template-columns: 2fr 1fr; }
+.track-grid { grid-template-columns: 1.5fr 1fr; }
+
+/* --- Telemetry Card Styling --- */
+.telemetry-card {
+  background: rgba(30, 35, 45, 0.6); /* Slightly lighter card bg */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 150px; /* Min height for consistency */
+}
+.telemetry-card h3 {
+  font-family: 'Aldrich', sans-serif;
+  color: #aaa;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 15px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.telemetry-card.large {
+  grid-column: span 2; /* Make some cards wider */
+  min-height: 250px; /* Taller */
+}
+
+/* --- Specific Card Content --- */
+
+/* Speed/RPM */
+.gauge-container { display: flex; gap: 20px; height: 100px; }
+.speed-gauge, .rpm-gauge { flex: 1; display: flex; flex-direction: column; }
+.speed-value, .rpm-value { font-size: 2.5em; font-weight: bold; line-height: 1; }
+.speed-label, .rpm-label { font-size: 0.8em; color: #777; margin-bottom: 5px; }
+.gauge-bar { width: 100%; height: 8px; background: #333; border-radius: 4px; overflow: hidden; margin-top: auto; }
+.gauge-fill { height: 100%; border-radius: 4px; transition: width 0.1s linear, background 0.3s; }
+
+/* Throttle/Brake */
+.pedal-container { display: flex; justify-content: space-around; height: 100px; }
+.pedal-gauge { display: flex; flex-direction: column; align-items: center; }
+.pedal-label { font-size: 0.8em; color: #777; margin-bottom: 5px; }
+.pedal-bar { width: 15px; height: 80px; background: #333; border-radius: 5px; overflow: hidden; display: flex; flex-direction: column-reverse; /* Fill from bottom */ }
+.pedal-fill { width: 100%; background: #eee; transition: height 0.1s linear; }
+.throttle-fill { background: #10b981; } /* Green */
+.brake-fill { background: #ef4444; } /* Red */
+.pedal-value { margin-top: 5px; font-size: 0.9em; font-weight: bold; }
+
+/* Systems */
+.systems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center; }
+.system-label { font-size: 0.8em; color: #777; margin-bottom: 5px; }
+.gear-display { font-size: 2.5em; font-weight: bold; line-height: 1; }
+.drs-status { font-weight: bold; font-size: 1.1em; padding: 3px 8px; border-radius: 4px; display: inline-block; }
+.drs-status.active { background: #a855f7; color: white; } /* Purple */
+.drs-status.inactive { background: #444; color: #888; }
+.ers-status { font-weight: bold; font-size: 1.1em; }
+
+/* G-Forces */
+.gforce-container { display: flex; flex-direction: column; gap: 10px; }
+.gforce-axis { /* Structure for label, value, bar */ }
+.axis-label { font-size: 0.8em; color: #777; }
+.gforce-value { font-weight: bold; font-size: 1em; margin-bottom: 3px; }
+.gforce-bar { position: relative; width: 100%; height: 6px; background: #333; border-radius: 3px; overflow: hidden; }
+.gforce-fill { position: absolute; top: 0; height: 100%; background: #646cff; border-radius: 3px; transition: width 0.1s linear, margin-left 0.1s linear; }
+/* Add pseudo element for center line */
+.gforce-bar::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: #555; }
+
+/* Tires */
+.tire-container { display: flex; justify-content: space-around; margin-bottom: 20px; }
+.tire-set { display: flex; flex-direction: column; gap: 10px; }
+.tire { width: 80px; height: 120px; border: 2px solid #555; border-radius: 8px; position: relative; overflow: hidden; background: #222; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 5px; }
+.tire-wear { position: absolute; inset: 0; transition: opacity 0.2s; } /* Color/Opacity set inline */
+.tire-info { z-index: 1; text-align: center; font-size: 0.8em; color: white; background: rgba(0,0,0,0.5); padding: 2px 4px; border-radius: 3px; }
+.tire-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; font-size: 0.9em; }
+.tire-stat { display: flex; justify-content: space-between; }
+.tire-stat span:first-child { color: #888; }
+.compound-badge { padding: 2px 6px; border-radius: 4px; color: white; font-weight: bold; font-size: 0.85em; }
+
+/* Engine */
+.fuel-gauge { /* styles */ }
+.fuel-value { text-align: center; font-size: 1.5em; font-weight: bold; margin-bottom: 5px; }
+.fuel-bar { width: 100%; height: 15px; background: #333; border-radius: 5px; overflow: hidden; margin-bottom: 3px; }
+.fuel-fill { height: 100%; background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981); border-radius: 5px; transition: width 0.2s linear; }
+.fuel-labels { display: flex; justify-content: space-between; font-size: 0.8em; color: #777; }
+.engine-stats { display: flex; flex-direction: column; gap: 8px; font-size: 0.95em; }
+.engine-stat { display: flex; justify-content: space-between; }
+.engine-stat span:first-child { color: #888; }
+.ers-display { text-align: center; }
+.ers-mode { font-size: 1.3em; font-weight: bold; margin-bottom: 10px; }
+.ers-charge-bar { width: 80%; height: 10px; background: #333; border-radius: 5px; overflow: hidden; margin: 5px auto; }
+.ers-charge-fill { height: 100%; background: #10b981; border-radius: 5px; }
+.ers-charge-label { font-size: 0.9em; color: #aaa; }
+
+/* Track */
+.lap-times { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; text-align: center; }
+.lap-time span:first-child { display: block; font-size: 0.8em; color: #888; margin-bottom: 3px; }
+.lap-time span:last-child { font-size: 1.4em; font-weight: bold; }
+.lap-time.delta span:last-child.positive { color: #ef4444; }
+.lap-time.delta span:last-child.negative { color: #a855f7; } /* Purple for faster */
+.sector-times { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+.sector { /* styles */ }
+.sector-header { display: flex; justify-content: space-between; font-size: 0.9em; margin-bottom: 3px; }
+.sector-header span:first-child { color: #888; }
+.sector-bar { width: 100%; height: 5px; background: #333; border-radius: 2px; overflow: hidden; }
+.sector-fill { height: 100%; background: #646cff; border-radius: 2px; } /* Simple fill */
+.position-data { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.9em; }
+.coord span:first-child { color: #888; margin-right: 5px; }
+.track-map-placeholder { height: 150px; background: #222; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: #555; margin-top: 15px; }
+
+
+/* --- Footer --- */
+.telemetry-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  font-size: 0.8em;
+  color: #777;
+}
+.data-source { display: flex; align-items: center; gap: 6px; font-weight: bold; }
+.status-indicator { /* Re-use dot style */
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.status-indicator.live { background-color: #10b981; }
+.status-indicator.sim { background-color: #f59e0b; }
+.driver-info-footer { /* Style if needed */ }
+.refresh-rate { /* Style if needed */ }
