@@ -143,14 +143,14 @@ npx tenderly simulation run
 ---
 
 ## 👥 Contributors  
-- **Lead Developer / Architect:** [Your Name]  
-- **Smart Contract Engineer:** [Your Name or Collaborator]  
-- **UI/UX & Motion Design:** [Your Name or Collaborator]  
+- **Lead Developer / Architect:** Garvit Juneja 
+- **Smart Contract Engineer:** Tanush Jain 
+- **UI/UX & Motion Design:** Garvit Juneja 
 
 ---
 
 ## 🧾 License  
-This project is licensed under the **MIT License**. See the LICENSE file for details.
+This project is made by GARVIT JUNEJA
 
 ---
 
